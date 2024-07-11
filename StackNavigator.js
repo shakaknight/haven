@@ -6,16 +6,25 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 //Screens
 import HomeScreen from "./components/home/HomeScreen";
 import ChatScreen from "./components/chat/chatScreen";
+import LoginScreen from "./components/login/LoginScreen";
 
 //Function to create a stack navigator
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
+    const user = true;
     return (
     <NavigationContainer>
         <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Chat" component={ChatScreen} />
+            {user ? (
+            <>
+                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Chat" component={ChatScreen} />
+            </>
+            ) : (
+                <Stack.Screen name="Login" component={LoginScreen} />
+            )
+        }
         </Stack.Navigator>
     </NavigationContainer>
     )
