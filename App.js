@@ -1,9 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import {useTailwind} from "tailwind-rn";
 import StackNavigator from './StackNavigator';
+import { AuthProvider } from './hooks/useAuth';
 
 export default function App() {
-  return <StackNavigator/>
-
+  return (
+  <AuthProvider>
+    <StackNavigator/>
+  </AuthProvider>
+  );
 }
